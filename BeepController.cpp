@@ -70,7 +70,7 @@ void CBeepController::tick()
 		break;
 
 	case Beep_On:
-		if((signed)(millis() - m_ulTimer) >= 0L)	// Timer expired?
+		if((signed long)(millis() - m_ulTimer) >= 0L)	// Timer expired?
 		{
 			noTone(m_iBeepOutPin);				// Stop the tone
 			m_ulTimer = millis() + m_iOffTime;	// Set the off time
@@ -79,7 +79,7 @@ void CBeepController::tick()
 		break;
 
 	case Beep_Off:
-		if((signed)(millis() - m_ulTimer) >= 0L)	// Off timer expired?
+		if((signed long)(millis() - m_ulTimer) >= 0L)	// Off timer expired?
 		{
 			if(!m_bAlarm && (m_iRepeats > 0))	// Decrement the repeat counter?
 				--m_iRepeats;					// Not if there is an alarm
